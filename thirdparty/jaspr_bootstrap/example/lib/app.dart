@@ -7,5 +7,7 @@ class App extends StatelessComponent {
   Iterable<Component> build(BuildContext context) sync* {
     yield StyleElement(styles: GridSystemPage.pageStyle);
     yield GridSystemPage();
+    yield CarouselPage();
+    yield TablePage();
   }
 }

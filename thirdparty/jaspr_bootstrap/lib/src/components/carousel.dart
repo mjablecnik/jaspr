@@ -62,7 +62,8 @@ class Carousel extends BaseComponent {
         if (attributes != null) ...attributes!,
       },
       children: [
-        if (enableIndicator) _CarouselIndicator(componentId: componentId, items: items),
+        if (enableIndicator)
+          _CarouselIndicator(componentId: componentId, items: items),
         DivElement(
           classes: ['carousel-inner'],
           children: items,
@@ -100,7 +101,9 @@ class _CarouselButton extends StatelessComponent {
         'data-bs-slide': type.name,
       },
       children: [
-        SpanElement(classes: ['carousel-control-${type.name}-icon'], attributes: {'aria-hidden': 'true'}),
+        SpanElement(
+            classes: ['carousel-control-${type.name}-icon'],
+            attributes: {'aria-hidden': 'true'}),
         SpanElement(classes: ['visually-hidden'], child: Text(type.name)),
       ],
     );
@@ -145,7 +148,8 @@ abstract class CarouselItem extends StatelessComponent {
     this.interval,
   });
 
-  Iterable<Component> _getCarouselItemComponent({required List<Component> children}) sync* {
+  Iterable<Component> _getCarouselItemComponent(
+      {required List<Component> children}) sync* {
     yield DivElement(
       classes: ['carousel-item', if (isActive) 'active'],
       attributes: {if (interval != null) 'data-bs-interval': '$interval'},
